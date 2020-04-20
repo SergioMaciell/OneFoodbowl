@@ -17,5 +17,10 @@
         {
             return  View(await dataContext.Customers.ToListAsync()); ;
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
     }
 }

@@ -19,5 +19,7 @@ namespace OneFoodBowl.web.Data.Entities
         public string Description { get; set; }
         [Display(Name = "Foto receta")]
         public string ImageUrl { get; set; }
+
+        public RecipeType RecipeType { get; set; }
     }
 }

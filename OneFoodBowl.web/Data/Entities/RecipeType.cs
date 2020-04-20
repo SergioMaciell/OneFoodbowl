@@ -14,5 +14,6 @@ namespace OneFoodBowl.web.Data.Entities
         [MaxLength(20, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
         public string Name { get; set; }
         public ICollection<CreatePlan> CreatePlans { get; set; }
+        public ICollection<Recipe> Recipes { get; set; }
     }
 }
