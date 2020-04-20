@@ -6,6 +6,7 @@ using OneFoodBowl.web.Data.Entities;
     {
        public DbSet<Gender> Genders { get; set; }
        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Nutritionist> Nutritionists { get; set; }
         public DataContext(DbContextOptions<DataContext>options):base(options)
         {
 

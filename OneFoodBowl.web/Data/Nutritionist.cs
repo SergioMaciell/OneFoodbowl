@@ -1,11 +1,11 @@
-﻿
+﻿using OneFoodBowl.web.Data.Entities;
 
-namespace OneFoodBowl.web.Data.Entities
+namespace OneFoodBowl.web.Data
 {
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Customer : IEntity
+    public class Nutritionist : IEntity
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "{0} es requerido")]
@@ -22,17 +22,9 @@ namespace OneFoodBowl.web.Data.Entities
         public string Address { get; set; }
         [Required(ErrorMessage = "{0} es requerido")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0:dd/mm/yyyy}", ApplyFormatInEditMode =false)]
-        [Display(Name ="Fecha de nacimiento")]
-        public DateTime BirthDate { get; set; }
-        [Required(ErrorMessage = "{0} es requerido")]
-        [Display(Name = "Estatura")]
-        [MaxLength(4, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
-        public double Height { get; set; }
-        [Required(ErrorMessage = "{0} es requerido")]
-        [Display(Name = "Peso")]
-        [MaxLength(5, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
-        public double Weight { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/mm/yyyy}", ApplyFormatInEditMode = false)]
+        [Display(Name = "Fecha de contratación")]
+        public DateTime HireDate { get; set; }
         [Display(Name = "Fotografía")]
         public string ImageUrl { get; set; }
         [Display(Name = "Nombre completo")]
