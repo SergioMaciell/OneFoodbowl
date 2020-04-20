@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{6F1F2E70-6156-4F6F-B020-19687DE2035A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{BEA07F92-2E25-4C6C-A249-F08A6AB400FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneFoodBowl.web", "OneFoodBowl.web\OneFoodBowl.web.csproj", "{316D6F58-DB33-44BE-AF2D-8D1AE30E3398}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{316D6F58-DB33-44BE-AF2D-8D1AE30E3398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{316D6F58-DB33-44BE-AF2D-8D1AE30E3398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{316D6F58-DB33-44BE-AF2D-8D1AE30E3398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{316D6F58-DB33-44BE-AF2D-8D1AE30E3398}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{316D6F58-DB33-44BE-AF2D-8D1AE30E3398} = {6F1F2E70-6156-4F6F-B020-19687DE2035A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF173752-B483-466F-BFFE-3D43F56AE4D6}
+	EndGlobalSection
+EndGlobal
