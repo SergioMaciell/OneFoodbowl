@@ -10,7 +10,7 @@ using OneFoodBowl.web.Data;
 namespace OneFoodBowl.web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200420103949_Nutriologo")]
+    [Migration("20200421191415_Nutriologo")]
     partial class Nutriologo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,25 @@ namespace OneFoodBowl.web.Migrations
                 .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("OneFoodBowl.web.Data.Entities.CreatePlan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(25);
+
+                    b.Property<int?>("RecipeTypeId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipeTypeId");
+
+                    b.ToTable("CreatePlans");
+                });
 
             modelBuilder.Entity("OneFoodBowl.web.Data.Entities.Customer", b =>
                 {
@@ -39,8 +58,7 @@ namespace OneFoodBowl.web.Migrations
 
                     b.Property<int?>("GenderId");
 
-                    b.Property<string>("Height")
-                        .IsRequired()
+                    b.Property<double>("Height")
                         .HasMaxLength(4);
 
                     b.Property<string>("ImageUrl");
@@ -49,8 +67,7 @@ namespace OneFoodBowl.web.Migrations
                         .IsRequired()
                         .HasMaxLength(30);
 
-                    b.Property<string>("Weight")
-                        .IsRequired()
+                    b.Property<double>("Weight")
                         .HasMaxLength(5);
 
                     b.HasKey("Id");
@@ -73,6 +90,46 @@ namespace OneFoodBowl.web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genders");
+                });
+
+            modelBuilder.Entity("OneFoodBowl.web.Data.Entities.Recipe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("ImageUrl");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30);
+
+                    b.Property<int?>("RecipeTypeId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RecipeTypeId");
+
+                    b.ToTable("Recipes");
+                });
+
+            modelBuilder.Entity("OneFoodBowl.web.Data.Entities.RecipeType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RecipeTypes");
                 });
 
             modelBuilder.Entity("OneFoodBowl.web.Data.Nutritionist", b =>
@@ -106,6 +163,13 @@ namespace OneFoodBowl.web.Migrations
                     b.ToTable("Nutritionists");
                 });
 
+            modelBuilder.Entity("OneFoodBowl.web.Data.Entities.CreatePlan", b =>
+                {
+                    b.HasOne("OneFoodBowl.web.Data.Entities.RecipeType", "RecipeType")
+                        .WithMany("CreatePlans")
+                        .HasForeignKey("RecipeTypeId");
+                });
+
             modelBuilder.Entity("OneFoodBowl.web.Data.Entities.Customer", b =>
                 {
                     b.HasOne("OneFoodBowl.web.Data.Entities.Gender", "Gender")
@@ -113,10 +177,17 @@ namespace OneFoodBowl.web.Migrations
                         .HasForeignKey("GenderId");
                 });
 
+            modelBuilder.Entity("OneFoodBowl.web.Data.Entities.Recipe", b =>
+                {
+                    b.HasOne("OneFoodBowl.web.Data.Entities.RecipeType", "RecipeType")
+                        .WithMany("Recipes")
+                        .HasForeignKey("RecipeTypeId");
+                });
+
             modelBuilder.Entity("OneFoodBowl.web.Data.Nutritionist", b =>
                 {
                     b.HasOne("OneFoodBowl.web.Data.Entities.Gender", "Gender")
-                        .WithMany()
+                        .WithMany("Nutritionists")
                         .HasForeignKey("GenderId");
                 });
 #pragma warning restore 612, 618

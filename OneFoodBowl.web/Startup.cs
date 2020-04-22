@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OneFoodBowl.web.Data;
+using OneFoodBowl.web.Helpers;
 
 namespace OneFoodBowl.web
 {
@@ -37,7 +38,8 @@ namespace OneFoodBowl.web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddScoped<ICombosHelper, CombosHelper>();
+            services.AddScoped<IImageHelper, ImageHelper>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

@@ -20,10 +20,6 @@ namespace OneFoodBowl.web.Data
         [Display(Name = "Nombres")]
         [MaxLength(50, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
         public string Address { get; set; }
-        [Required(ErrorMessage = "{0} es requerido")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/mm/yyyy}", ApplyFormatInEditMode = false)]
-        [Display(Name = "Fecha de contratación")]
         public DateTime HireDate { get; set; }
         [Display(Name = "Fotografía")]
         public string ImageUrl { get; set; }
