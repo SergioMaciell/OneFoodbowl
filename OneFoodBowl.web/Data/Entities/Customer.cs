@@ -1,6 +1,4 @@
-﻿
-
-namespace OneFoodBowl.web.Data.Entities
+﻿namespace OneFoodBowl.web.Data.Entities
 {
     using System;
     using System.ComponentModel.DataAnnotations;
@@ -17,7 +15,7 @@ namespace OneFoodBowl.web.Data.Entities
         [MaxLength(30, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
         public string LastName { get; set; }
         [Required(ErrorMessage = "{0} es requerido")]
-        [Display(Name = "Nombres")]
+        [Display(Name = "Dirección")]
         [MaxLength(50, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
         public string Address { get; set; }
         [Required(ErrorMessage = "{0} es requerido")]
@@ -28,11 +26,11 @@ namespace OneFoodBowl.web.Data.Entities
         [Required(ErrorMessage = "{0} es requerido")]
         [Display(Name = "Estatura")]
         [MaxLength(4, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
-        public double Height { get; set; }
+        public string Height { get; set; }
         [Required(ErrorMessage = "{0} es requerido")]
         [Display(Name = "Peso")]
         [MaxLength(5, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
-        public double Weight { get; set; }
+        public string Weight { get; set; }
         [Display(Name = "Fotografía")]
         public string ImageUrl { get; set; }
         [Display(Name = "Nombre completo")]

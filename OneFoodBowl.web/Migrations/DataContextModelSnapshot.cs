@@ -106,7 +106,11 @@ namespace OneFoodBowl.web.Migrations
                         .IsRequired()
                         .HasMaxLength(30);
 
+                    b.Property<int?>("RecipeTypeId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("RecipeTypeId");
 
                     b.ToTable("Recipes");
                 });
@@ -169,6 +173,13 @@ namespace OneFoodBowl.web.Migrations
                     b.HasOne("OneFoodBowl.web.Data.Entities.Gender", "Gender")
                         .WithMany("Customers")
                         .HasForeignKey("GenderId");
+                });
+
+            modelBuilder.Entity("OneFoodBowl.web.Data.Entities.Recipe", b =>
+                {
+                    b.HasOne("OneFoodBowl.web.Data.Entities.RecipeType", "RecipeType")
+                        .WithMany("Recipes")
+                        .HasForeignKey("RecipeTypeId");
                 });
 
             modelBuilder.Entity("OneFoodBowl.web.Data.Nutritionist", b =>

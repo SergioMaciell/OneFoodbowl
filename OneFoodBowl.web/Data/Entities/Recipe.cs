@@ -21,5 +21,7 @@ namespace OneFoodBowl.web.Data.Entities
         public string ImageUrl { get; set; }
 
         public RecipeType RecipeType { get; set; }
+
+        public ICollection<CreatePlan> CreatePlans { get; set; }
     }
 }
