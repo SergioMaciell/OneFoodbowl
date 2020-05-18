@@ -8,7 +8,7 @@
         [Display(Name = "Género")]
         [MaxLength(25, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres")]
         public string Name { get; set; }
-        public Recipe Recipe { get; set; }
+        public RecipeDetail RecipeDetail { get; set; }
 
     }
 }

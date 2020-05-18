@@ -1,4 +1,9 @@
-﻿namespace OneFoodBowl.web.Controllers
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace OneFoodBowl.web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
@@ -8,13 +13,13 @@
     using OneFoodBowl.web.Models;
     using System.Threading.Tasks;
 
-    public class CustomersController : Controller
+    public class NutritionistsController : Controller
     {
         private readonly DataContext dataContext;
         private readonly ICombosHelper combosHelper;
         private readonly IImageHelper imageHelper;
 
-        public CustomersController(DataContext dataContext,
+        public NutritionistsController(DataContext dataContext,
            ICombosHelper combosHelper,
            IImageHelper imageHelper)
         {
@@ -24,11 +29,11 @@
         }
         public async Task<IActionResult> Index()
         {
-            return View(await dataContext.Customers.ToListAsync());
+            return View(await dataContext.Nutritionists.ToListAsync());
         }
         public IActionResult Create()
         {
-            var model = new CustomerViewModel
+            var model = new NutritionistViewModel
             {
                 Genders = combosHelper.GetComboGenders()
             };
@@ -36,22 +41,20 @@
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CustomerViewModel model)
+        public async Task<IActionResult> Create(NutritionistViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var customer = new Customer
+                var nutritionist = new Nutritionist
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     Address = model.Address,
-                    BirthDate = model.BirthDate,
-                    Height = model.Height,
-                    Weight = model.Weight,
-                    Gender = await dataContext.Genders.FirstOrDefaultAsync(m=>m.Id==model.GenderId),
-                    ImageUrl = await imageHelper.UploadImageAsync(model.ImageFile,model.FirstName,"Customers") 
+                    HireDate = model.HireDate,
+                    Gender = await dataContext.Genders.FirstOrDefaultAsync(m => m.Id == model.GenderId),
+                    ImageUrl = await imageHelper.UploadImageAsync(model.ImageFile, model.FirstName, "Nutritionists")
                 };
-                dataContext.Customers.Add(customer);
+                dataContext.Nutritionists.Add(nutritionist);
                 await dataContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

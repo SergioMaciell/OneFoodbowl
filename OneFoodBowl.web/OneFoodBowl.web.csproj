@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\Customers\" />
+    <Folder Include="wwwroot\images\RecipeDetail\" />
   </ItemGroup>
 
 </Project>

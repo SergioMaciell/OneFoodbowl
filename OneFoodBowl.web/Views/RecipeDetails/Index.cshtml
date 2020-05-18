@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OneFoodBowl.web.Data.Entities.Recipe>
+﻿@model IEnumerable<OneFoodBowl.web.Data.Entities.RecipeDetail>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,10 +16,13 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.Instruction)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ingredients)
             </th>
             <th></th>
         </tr>
@@ -31,10 +34,13 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Instruction)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ingredients)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

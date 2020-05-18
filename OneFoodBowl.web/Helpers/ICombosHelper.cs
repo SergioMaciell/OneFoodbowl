@@ -7,5 +7,7 @@ namespace OneFoodBowl.web.Helpers
     public interface ICombosHelper 
     {
         IEnumerable<SelectListItem> GetComboGenders();
+        IEnumerable<SelectListItem> GetComboRecipeTypes();
+        IEnumerable<SelectListItem> GetComboRecipes();
     }
 }

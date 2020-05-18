@@ -28,5 +28,35 @@ namespace OneFoodBowl.web.Helpers
             });
             return list;
         }
+        public IEnumerable<SelectListItem> GetComboRecipeTypes()
+        {
+            var list = dataContext.RecipeTypes.Select(
+                c => new SelectListItem
+                {
+                    Text = c.Name,
+                    Value = $"{c.Id}"
+                }).ToList();
+            list.Insert(0, new SelectListItem
+            {
+                Text = "[debe seleccionar el tipo de receta...]",
+                Value = "0"
+            });
+            return list;
+        }
+        public IEnumerable<SelectListItem> GetComboRecipes()
+        {
+            var list = dataContext.RecipeDetails.Select(
+                c => new SelectListItem
+                {
+                    Text = c.Name,
+                    Value = $"{c.Id}"
+                }).ToList();
+            list.Insert(0, new SelectListItem
+            {
+                Text = "[debe seleccionar la receta...]",
+                Value = "0"
+            });
+            return list;
+        }
     }
 }
